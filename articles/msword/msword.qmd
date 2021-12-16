@@ -27,16 +27,4 @@ plt.show()
 ```
 
 
-## Data Frames
-
-Render data frames with:
-
-```{python}
-import pandas as pd
-
-d = {'one' : [1., 2., 3., 4.],
-     'two' : [4., 3., 2., 1.]}
-df = pd.DataFrame(d)
-df.to_html(index = False)
-```
 
