@@ -1,0 +1,5 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - page-layout/tufte.pdf

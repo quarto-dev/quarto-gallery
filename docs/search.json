@@ -1,0 +1,198 @@
+[
+  {
+    "objectID": "page-layout/tufte.html#margin-figures",
+    "href": "page-layout/tufte.html#margin-figures",
+    "title": "A Quarto Page Layout Example",
+    "section": "Margin Figures",
+    "text": "Margin Figures\nImages and graphics play an integral role in Tufte’s work. To place figures in the margin you can use the Quarto chunk option column: margin. For example:\n\nlibrary(ggplot2)\n\nWarning: replacing previous import 'lifecycle::last_warnings' by\n'rlang::last_warnings' when loading 'tibble'\n\nmtcars2 <- mtcars\nmtcars2$am <- factor(\n  mtcars$am, labels = c('automatic', 'manual')\n)\nggplot(mtcars2, aes(hp, mpg, color = am)) +\n  geom_point() + geom_smooth() +\n  theme(legend.position = 'bottom')\n\n\n\n\n\nFigure 1: MPG vs horsepower, colored by transmission.\n\n\n\nNote the use of the fig-cap chunk option to provide a figure caption. You can adjust the proportions of figures using the fig-width and fig-height chunk options. These are specified in inches, and will be automatically scaled down to fit within the handout margin."
+  },
+  {
+    "objectID": "page-layout/tufte.html#arbitrary-margin-content",
+    "href": "page-layout/tufte.html#arbitrary-margin-content",
+    "title": "A Quarto Page Layout Example",
+    "section": "Arbitrary Margin Content",
+    "text": "Arbitrary Margin Content\nYou can include anything in the margin by places the class .column-margin on the element. See an example on the right about the first fundamental theorem of calculus.\n\n\nWe know from the first fundamental theorem of calculus that for \\(x\\) in \\([a, b]\\):\n\\[\\frac{d}{dx}\\left( \\int_{a}^{x} f(u)\\,du\\right)=f(x).\\]"
+  },
+  {
+    "objectID": "page-layout/tufte.html#full-width-figures",
+    "href": "page-layout/tufte.html#full-width-figures",
+    "title": "A Quarto Page Layout Example",
+    "section": "Full Width Figures",
+    "text": "Full Width Figures\nYou can arrange for figures to span across the entire page by using the chunk option fig-column: page-right.\n\nggplot(diamonds, aes(carat, price)) + geom_smooth() +\n  facet_grid(~ cut)\n\n\n\n\nFigure 2: A full width figure.\n\n\n\n\nOther chunk options related to figures can still be used, such as fig-width, fig-cap, and so on. For full width figures, usually fig-width is large and fig-height is small. In the above example, the plot size is \\(11 \\times 3\\)."
+  },
+  {
+    "objectID": "page-layout/tufte.html#arbitrary-full-width-content",
+    "href": "page-layout/tufte.html#arbitrary-full-width-content",
+    "title": "A Quarto Page Layout Example",
+    "section": "Arbitrary Full Width Content",
+    "text": "Arbitrary Full Width Content\nAny content can span to the full width of the page, simply place the element in a div and add the class column-page-right. For example, the following code will display its contents as full width.\n::: {.fullwidth}\nAny _full width_ content here.\n:::\nBelow is an example:\n\nR is free software and comes with ABSOLUTELY NO WARRANTY. You are welcome to redistribute it under the terms of the GNU General Public License versions 2 or 3. For more information about these matters see https://www.gnu.org/licenses/."
+  },
+  {
+    "objectID": "page-layout/tufte.html#main-column-figures",
+    "href": "page-layout/tufte.html#main-column-figures",
+    "title": "A Quarto Page Layout Example",
+    "section": "Main Column Figures",
+    "text": "Main Column Figures\nBesides margin and full width figures, you can of course also include figures constrained to the main column. This is the default type of figures in the LaTeX/HTML output.\n\nggplot(diamonds, aes(cut, price)) + geom_boxplot()\n\n\n\n\nFigure 3: A figure in the main column."
+  },
+  {
+    "objectID": "page-layout/tufte.html#margin-captions",
+    "href": "page-layout/tufte.html#margin-captions",
+    "title": "A Quarto Page Layout Example",
+    "section": "Margin Captions",
+    "text": "Margin Captions\nWhen you include a figure constrained to the main column, you can choose to place the figure’s caption in the margin by using the caption-location chunk option. For example:\n\nggplot(diamonds, aes(cut, price)) + geom_boxplot()\n\n\n\n\nFigure 4: A figure with a longer caption. The figure appears in the main column, but the caption is placed in the margin. Caption can even contain elements like a citation such as Xie, Allaire, and Grolemund (2018).\nXie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. “Tufte Handouts.” In, 137–46. Chapman; Hall/CRC. https://doi.org/10.1201/9781138359444-6."
+  },
+  {
+    "objectID": "articles/html/html.html#introduction",
+    "href": "articles/html/html.html#introduction",
+    "title": "Quarto HTML Basics",
+    "section": "Introduction",
+    "text": "Introduction\nThis a Quarto document. To learn more about Quarto see https://quarto.org.\nClick the Code button in the header to see the full source code of this document.\nHere we call the R summary() function—the function’s output is included immediately below:\n\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00"
+  },
+  {
+    "objectID": "articles/html/html.html#plot-output",
+    "href": "articles/html/html.html#plot-output",
+    "title": "Quarto HTML Basics",
+    "section": "Plot Output",
+    "text": "Plot Output\nYou can also embed plots, for example:\n\n\nCode\nlibrary(ggplot2)\ndat <- data.frame(cond = rep(c(\"A\", \"B\"), each=10),\n                  xvar = 1:20 + rnorm(20,sd=3),\n                  yvar = 1:20 + rnorm(20,sd=3))\n\nggplot(dat, aes(x=xvar, y=yvar)) +\n    geom_point(shape=1) + \n    geom_smooth() \n\n\n\n\n\nFigure 1: Pressure\n\n\n\n\nNote that the code-fold: true parameter was added to the code chunk to hide the code by default (click “Code” above the plot to see the code).\nThe use of the label and fig-cap options make this a cross-referenceable figure (see fig. 1)."
+  },
+  {
+    "objectID": "articles/html/html.html#interactivity",
+    "href": "articles/html/html.html#interactivity",
+    "title": "Quarto HTML Basics",
+    "section": "Interactivity",
+    "text": "Interactivity\nYou can also add interactive plots. For example:\n\nlibrary(dygraphs)\ndygraph(nhtemp) %>% \n  dyRangeSelector(dateWindow = c(\"1920-01-01\", \"1960-01-01\"))\n\n\n\n\nFigure 2: New Haven Temperatures"
+  },
+  {
+    "objectID": "articles/html/html.html#tables",
+    "href": "articles/html/html.html#tables",
+    "title": "Quarto HTML Basics",
+    "section": "Tables",
+    "text": "Tables\nUse the knitr::kable() function to print tables as HTML:\n\nknitr::kable(head(ggplot2::diamonds))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncarat\ncut\ncolor\nclarity\ndepth\ntable\nprice\nx\ny\nz\n\n\n\n\n0.23\nIdeal\nE\nSI2\n61.5\n55\n326\n3.95\n3.98\n2.43\n\n\n0.21\nPremium\nE\nSI1\n59.8\n61\n326\n3.89\n3.84\n2.31\n\n\n0.23\nGood\nE\nVS1\n56.9\n65\n327\n4.05\n4.07\n2.31\n\n\n0.29\nPremium\nI\nVS2\n62.4\n58\n334\n4.20\n4.23\n2.63\n\n\n0.31\nGood\nJ\nSI2\n63.3\n58\n335\n4.34\n4.35\n2.75\n\n\n0.24\nVery Good\nJ\nVVS2\n62.8\n57\n336\n3.94\n3.96\n2.48"
+  },
+  {
+    "objectID": "articles/html/html.html#latex-math",
+    "href": "articles/html/html.html#latex-math",
+    "title": "Quarto HTML Basics",
+    "section": "LaTeX Math",
+    "text": "LaTeX Math\nYou can also include LaTeX math:\n\nP\\left(A=2\\middle|\\frac{A^2}{B}>4\\right)\n\n\n\n\nSource Code\n---\ntitle: \"Quarto HTML Basics\"\nauthor: \"Norah Jones\"\ndate: \"March 22nd, 2021\"\ntoc: true\nformat:\n  html:\n    html-math-method: katex\n    code-tools: true\n    self-contained: true\nexecute:\n  warning: false\n---\n\n## Introduction\n\nThis a Quarto document. To learn more about Quarto see <https://quarto.org>.\n\nClick the **Code** button in the header to see the full source code of this document.\n\nHere we call the R `summary()` function---the function's output is included immediately below:\n\n```{r}\nsummary(cars)\n```\n\n## Plot Output\n\nYou can also embed plots, for example:\n\n```{r}\n#| label: fig-pressure\n#| fig-cap: \"Pressure\"\n#| code-fold: true\n\nlibrary(ggplot2)\ndat <- data.frame(cond = rep(c(\"A\", \"B\"), each=10),\n                  xvar = 1:20 + rnorm(20,sd=3),\n                  yvar = 1:20 + rnorm(20,sd=3))\n\nggplot(dat, aes(x=xvar, y=yvar)) +\n    geom_point(shape=1) + \n    geom_smooth() \n```\n\nNote that the `code-fold: true` parameter was added to the code chunk to hide the code by default (click \"Code\" above the plot to see the code).\n\nThe use of the `label` and `fig-cap` options make this a cross-referenceable figure (see @fig-pressure).\n\n## Interactivity\n\nYou can also add interactive plots. For example:\n\n```{r}\n#| label: fig-temperatures\n#| fig-cap: \"New Haven Temperatures\"\n\nlibrary(dygraphs)\ndygraph(nhtemp) %>% \n  dyRangeSelector(dateWindow = c(\"1920-01-01\", \"1960-01-01\"))\n```\n\n## Tables\n\nUse the `knitr::kable()` function to print tables as HTML:\n\n```{r}\nknitr::kable(head(ggplot2::diamonds))\n```\n\n\n## LaTeX Math\n\nYou can also include LaTeX math:\n\n$$\nP\\left(A=2\\middle|\\frac{A^2}{B}>4\\right)\n$$"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#agenda",
+    "href": "presentations/revealjs/reveal.html#agenda",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "Agenda",
+    "text": "Agenda\n\nBackground\nDesign and Implementation\nShowcase\nPath forward"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#motivation",
+    "href": "presentations/revealjs/reveal.html#motivation",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "Motivation",
+    "text": "Motivation\n\nTime-consuming\nDifficult to maintain\nSuboptimal tools\nOutmoded data format\nOverreliance on a single individual"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#what-we-did",
+    "href": "presentations/revealjs/reveal.html#what-we-did",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "What we did",
+    "text": "What we did\n\nAutomation\nModular and flexible design\nFast and efficient tools\nMachine-friendly format\nPotential division of labor"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#automation",
+    "href": "presentations/revealjs/reveal.html#automation",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "Automation",
+    "text": "Automation"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#modularity",
+    "href": "presentations/revealjs/reveal.html#modularity",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "Modularity",
+    "text": "Modularity"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#modularity-1",
+    "href": "presentations/revealjs/reveal.html#modularity-1",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "Modularity",
+    "text": "Modularity"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#efficiency",
+    "href": "presentations/revealjs/reveal.html#efficiency",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "Efficiency",
+    "text": "Efficiency"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#format-old",
+    "href": "presentations/revealjs/reveal.html#format-old",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "Format (old)",
+    "text": "Format (old)"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#format-old-1",
+    "href": "presentations/revealjs/reveal.html#format-old-1",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "Format (old)",
+    "text": "Format (old)"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#format-old-2",
+    "href": "presentations/revealjs/reveal.html#format-old-2",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "Format (old)",
+    "text": "Format (old)"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#format-old-3",
+    "href": "presentations/revealjs/reveal.html#format-old-3",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "Format (old)",
+    "text": "Format (old)"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#format-new",
+    "href": "presentations/revealjs/reveal.html#format-new",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "Format (new)",
+    "text": "Format (new)"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#format-new-1",
+    "href": "presentations/revealjs/reveal.html#format-new-1",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "Format (new)",
+    "text": "Format (new)"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#format-new-2",
+    "href": "presentations/revealjs/reveal.html#format-new-2",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "Format (new)",
+    "text": "Format (new)"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#format-new-3",
+    "href": "presentations/revealjs/reveal.html#format-new-3",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "Format (new)",
+    "text": "Format (new)"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#division-of-labor",
+    "href": "presentations/revealjs/reveal.html#division-of-labor",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "Division of labor",
+    "text": "Division of labor"
+  },
+  {
+    "objectID": "presentations/revealjs/reveal.html#division-of-labor-1",
+    "href": "presentations/revealjs/reveal.html#division-of-labor-1",
+    "title": "Modernizing R&A Data Products With Python",
+    "section": "Division of labor",
+    "text": "Division of labor"
+  }
+]
